@@ -1,6 +1,6 @@
 #!/bin/bash
      
-c_file=/home/pi/raspi-script/config.cfg
+c_file=/home/pi/raspberry-script/config.cfg
 
 unknown=`cat $c_file | grep -Evi "^(#.*|[a-z]*='[a-z0-9 ]*')$"`
 if [ -n "$unknown" ]; then
