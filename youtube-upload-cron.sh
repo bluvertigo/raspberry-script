@@ -10,3 +10,33 @@ if [ -n "$unknown" ]; then
 fi
 source $c_file
 echo "File Loaded"
+
+
+#make list of files to work with that are at least x minutes old
+     for i in $(find $x/ | grep -E 'avi|mov|mpeg|mp4'  | sort) ; do echo $i >> $x/$date.lst ; done
+
+#proceed if there are any videos
+if [ -a $x/$date.lst ]
+then
+
+
+for filename in $(cat $x/$date.lst);
+do
+  #upload video
+        if [ -a $filename ]
+        then
+                echo $filename
+        fi
+done
+
+
+  #delete helper files
+      if [ -a $x/$date.tmp ]
+      then
+        rm -f $x/$date.tmp
+      fi
+      if [ -a $x/$date.lst ]
+      then
+        rm -f $x/$date.lst
+      fi
+fi
