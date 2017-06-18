@@ -35,7 +35,7 @@ do
                 #result=$(youtube-upload --privacy="unlisted" --title="$fileprefix$date"  $filename)
        		result="6dwqZw0j_jY"
 		echo -e "***\nFile: $result\n"
-		if [ echo "$result" | grep -q -E '([\w\'-]+)' ]
+		if echo $result | grep -Eq "^([A-Za-z0-9_\-]{11})$"
 		then
     			echo "Valid date"
 		fi
