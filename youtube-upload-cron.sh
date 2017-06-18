@@ -20,7 +20,7 @@ mkdir $COPY_DIR
 fi
 
 #make list of files to work with that are at least x minutes old
-     for i in $(find $x/ | grep -E 'avi|mov|mpeg|mp4'  | sort) ; do echo $i >> $x/$date.lst ; done
+     for i in $(find $x/ | grep -E 'avi|mov|mpeg|mp4|MOV'  | sort) ; do echo $i >> $x/$date.lst ; done
 
 #proceed if there are any videos
 if [ -a $x/$date.lst ]
