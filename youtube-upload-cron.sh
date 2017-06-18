@@ -32,14 +32,14 @@ do
   #upload video
         if [ -a $filename ]
         then
-                #result=$(youtube-upload --privacy="unlisted" --title="$fileprefix$date"  $filename)
-       		result="6dwqZw0j_jY"
+                result=$(youtube-upload --privacy="unlisted" --title="$fileprefix$date"  $filename)
+       		#result="6dwqZw0j_jY"
 		echo -e "***\nFile: $result\n"
 		if echo $result | grep -Eq "^([A-Za-z0-9_\-]{11})$"
 		then
-    			echo "Valid date"
+    			$(/home/pi/raspberry-script/slackpost.sh "caricato video https://www.youtube.com/watch?v=$result")
 		fi
-		#mv $filename $COPY_DIR
+		mv $filename $COPY_DIR
 	fi
 done
 
