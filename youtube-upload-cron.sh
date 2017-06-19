@@ -32,12 +32,16 @@ do
   #upload video
         if [ -a $filename ]
         then
-                result=$(youtube-upload --privacy="unlisted" --title="$fileprefix$date"  $filename)
+                $(/home/pi/raspberry-script/slackpost.sh "Inizio caricamento video: $filename")
+		result=$(youtube-upload --privacy="unlisted" --title="$fileprefix$date"  $filename)
        		#result="6dwqZw0j_jY"
 		echo -e "***\nFile: $result\n"
 		if echo $result | grep -Eq "^([A-Za-z0-9_\-]{11})$"
 		then
     			$(/home/pi/raspberry-script/slackpost.sh "caricato video https://www.youtube.com/watch?v=$result")
+		else
+			$(/home/pi/raspberry-script/slackpost.sh "Errore: $result")
+
 		fi
 		mv $filename $COPY_DIR
 	fi
