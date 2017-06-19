@@ -33,8 +33,8 @@ do
         if [ -a $filename ]
         then
                 $(/home/pi/raspberry-script/slackpost.sh "Inizio caricamento video")
-		result=$(youtube-upload --privacy="unlisted" --title="$filename"  $filename)
-       		#result="6dwqZw0j_jY"
+		# result=$(youtube-upload --privacy="unlisted" --title="$filename"  $filename)
+       		result="6dwqZw0j_jY"
 		echo -e "***\nFile: $result\n"
 		if echo $result | grep -Eq "^([A-Za-z0-9_\-]{11})$"
 		then
