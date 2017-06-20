@@ -13,8 +13,6 @@ echo "File Loaded"
 # https://slackhost.slack.com/
 #slackhost=""
 
-#hooks="T5UQWJR32/B5VJ02RU5/XIrSokycsPdiC3dlnmiUSTEr"
-
 if [[ $hooks == "" ]]
 then
         echo "No token specified"

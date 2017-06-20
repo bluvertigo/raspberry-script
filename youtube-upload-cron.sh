@@ -32,7 +32,7 @@ do
   #upload video
         if [ -a $filename ]
         then
-                $(/home/pi/raspberry-script/slackpost.sh "Inizio caricamento video: $filename")
+                $(/home/pi/raspberry-script/slackpost.sh "Inizio caricamento video")
 		result=$(youtube-upload --privacy="unlisted" --title="$filename"  $filename)
        		#result="6dwqZw0j_jY"
 		echo -e "***\nFile: $result\n"
